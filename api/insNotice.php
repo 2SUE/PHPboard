@@ -8,7 +8,7 @@
 
     require_once("./dbconfig.php");
 
-    $query = "INSERT INTO notice (title, content)
+    $query = "INSERT INTO board (title, content)
               VALUES (:val1, :val2);"; 
     $stmt = $pdo->prepare($query); 
     $stmt->bindValue(':val1', $_POST["title"], PDO::PARAM_STR); 
@@ -24,7 +24,7 @@
             $size = $file["size"];
             $name = $file["name"];
 
-            $query = "INSERT INTO `file` (notice_id, origin_name, size)
+            $query = "INSERT INTO `file` (board_id, origin_name, size)
                       VALUES (:val1, :val2, :val3);"; 
             $stmt = $pdo->prepare($query); 
             $stmt->bindValue(':val1', $id, PDO::PARAM_INT); 

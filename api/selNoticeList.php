@@ -8,7 +8,7 @@
 
     require_once("./dbconfig.php");
 
-    $pagingQuery = "SELECT COUNT(*) as total FROM notice;"; // 페이징 정보
+    $pagingQuery = "SELECT COUNT(*) as total FROM board;"; // 페이징 정보
     $stmt = $pdo->prepare($pagingQuery); 
     $stmt->execute();
 
@@ -23,7 +23,7 @@
     $start = ($pageNum) * $list_num;
 
     $listQuery = "SELECT id, title, reg_date, `state`, view_count
-                  FROM notice
+                  FROM board
                   ORDER bY id DESC
                   LIMIT :val1, :val2;"; // 게시글 정보
     $stmt = $pdo->prepare($listQuery); 

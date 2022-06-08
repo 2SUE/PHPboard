@@ -1,24 +1,24 @@
 import { useState, useEffect } from "react";
-import { NoticeItem } from "../Item/NoticeItem";
-import { Link, useNavigate } from 'react-router-dom';
+import { Item } from "../Item/Item";
+import { Link } from 'react-router-dom';
 import axios from 'axios'
-import './noticeList.scss';
-import { INoticeTypes } from "../../../Interfaces";
+import './list.scss';
+import { IBoardTypes } from "../../Interfaces";
 
 interface IPageProp {
     page: number;
     setPage: any;
 }
 
-export const NoticeList:React.FC<IPageProp> = ({page, setPage}:IPageProp):JSX.Element => {
-    const [list, setList] = useState<INoticeTypes[]>([]);
+export const List:React.FC<IPageProp> = ({page, setPage}:IPageProp):JSX.Element => {
+    const [list, setList] = useState<IBoardTypes[]>([]);
     const [total, setTotal] = useState(0);
     const [limit, setLimit] = useState(1);
 
     useEffect(() => {
         axios.post('/api/selNoticeList.php', JSON.stringify({page}))
        .then(res => {                         
-           let resNotice: INoticeTypes[] = [];
+           let resNotice: IBoardTypes[] = [];
             for (let i = 0; i < res.data.length-1 ; i++) {
                 resNotice[i] = {
                     id: res.data[i][0],
@@ -56,7 +56,7 @@ export const NoticeList:React.FC<IPageProp> = ({page, setPage}:IPageProp):JSX.El
 
                     <tbody>
                         {list.map(item => {
-                            return <NoticeItem 
+                            return <Item 
                                         key={item.id}
                                         id={item.id}
                                         title={item.title}

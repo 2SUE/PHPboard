@@ -9,13 +9,13 @@
     
     require_once("./dbconfig.php");
 
-    $noticeQuery = "SELECT title, content, reg_date, `state` FROM notice WHERE id = :val;";
-    $stmt = $pdo->prepare($noticeQuery); 
+    $query = "SELECT title, content, reg_date, `state` FROM board WHERE id = :val;";
+    $stmt = $pdo->prepare($query); 
     $stmt->bindValue(':val', $id, PDO::PARAM_INT);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_NUM); 
 
-    $fileQuery = "SELECT id, origin_name, size, `state` FROM `file` WHERE notice_id = :val;";
+    $fileQuery = "SELECT id, origin_name, size, `state` FROM `file` WHERE board_id = :val;";
     $stmt = $pdo->prepare($fileQuery);  
     $stmt->bindValue(':val', $id, PDO::PARAM_INT);
     $stmt->execute();

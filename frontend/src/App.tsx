@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Access } from './components/admin/access/Access';
-import { Notice } from './components/admin/notice/Notice';
+import { Access } from './components/access/Access';
+import { Board } from './components/notice/Board';
 import './app.scss';
 
 export const App = () => {
@@ -8,7 +8,7 @@ export const App = () => {
     <Routes>
       <Route path='/'>
         <Route path='' element={<Access />}/>
-        <Route path=':uuid/*' element={<Notice/>}/>
+        <Route path=':uuid/*' element={<Board/>}/>
       </Route>
 
       {/* 404 에러 라우팅 */}

@@ -8,7 +8,7 @@
     echo sizeof($_FILES);
     require_once("./dbconfig.php");
 
-    $query = "UPDATE notice SET title = :val1, content = :val2 WHERE id = :val3;"; 
+    $query = "UPDATE board SET title = :val1, content = :val2 WHERE id = :val3;"; 
     $stmt = $pdo->prepare($query); 
     $stmt->bindValue(':val1', $_POST["title"], PDO::PARAM_STR); 
     $stmt->bindValue(':val2', $_POST["content"], PDO::PARAM_STR);  
@@ -23,7 +23,7 @@
             $size = $file["size"];
             $name = $file["name"];
 
-            $query = "INSERT INTO `file` (notice_id, origin_name, size)
+            $query = "INSERT INTO `file` (board_id, origin_name, size)
                         VALUES (:val1, :val2, :val3);"; 
             $stmt = $pdo->prepare($query); 
             $stmt->bindValue(':val1', $_POST["id"], PDO::PARAM_INT); 

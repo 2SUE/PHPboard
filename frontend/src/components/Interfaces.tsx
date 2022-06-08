@@ -1,4 +1,4 @@
-export interface INoticeTypes {
+export interface IBoardTypes {
     id?: number;
     title?: string;
     content?: string;

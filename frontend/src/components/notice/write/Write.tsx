@@ -2,12 +2,12 @@ import { useState, useCallback, useEffect, useMemo, useRef} from 'react';
 import ReactQuill from 'react-quill';
 import { RangeStatic } from 'quill';
 import { useNavigate, useParams } from 'react-router-dom';
-import { IFilesTypes} from '../../../Interfaces';
+import { IFilesTypes } from '../../Interfaces';
 import 'react-quill/dist/quill.snow.css';
 import axios from 'axios';
-import './noticeWrite.scss';
+import './write.scss';
 
-export const NoticeWrite:React.FC = ():JSX.Element => {
+export const Write:React.FC = ():JSX.Element => {
     const { uuid, id } = useParams();
     const [title, setTitle] = useState<string>('');
     const [content, setContent] = useState<string>('');

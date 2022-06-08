@@ -9,8 +9,8 @@
     
     require_once("./dbconfig.php");
 
-    $noticeQuery = "UPDATE notice SET `state` = false WHERE id = :val;";
-    $stmt = $pdo->prepare($noticeQuery); 
+    $query = "UPDATE board SET `state` = false WHERE id = :val;";
+    $stmt = $pdo->prepare($query); 
     $stmt->bindValue(':val', $id, PDO::PARAM_INT);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_NUM); 

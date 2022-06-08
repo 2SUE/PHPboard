@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link, useLocation, Routes, Route } from "react-router-dom"
-import { NoticeDetail } from "./detail/NoticeDetail";
-import { NoticeList } from "./list/NoticeList";
-import { NoticeWrite } from './write/NoticeWrite';
-import './notice.scss';
+import { Detail } from "./detail/detail";
+import { List } from "./list/List";
+import { Write } from './write/Write';
+import './board.scss';
 
-export const Notice:React.FC = ():JSX.Element => {
+export const Board:React.FC = ():JSX.Element => {
     const { uuid } = useParams();   
     const uid =  window.sessionStorage.getItem('uuid');
     const navigate = useNavigate();
@@ -27,10 +27,10 @@ export const Notice:React.FC = ():JSX.Element => {
             </div>
             <div className="notice-area">
                 <Routes>
-                    <Route path='' element={<NoticeList page={nowPage} setPage={setPage}/>}/>
-                    <Route path=':id' element={<NoticeDetail/>}/>
-                    <Route path='write' element={<NoticeWrite/>}/>
-                    <Route path=':id/mod' element={<NoticeWrite/>}/>
+                    <Route path='' element={<List page={nowPage} setPage={setPage}/>}/>
+                    <Route path=':id' element={<Detail/>}/>
+                    <Route path='write' element={<Write/>}/>
+                    <Route path=':id/mod' element={<Write/>}/>
                 </Routes>
             </div>
         </div>

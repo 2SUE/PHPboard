@@ -1,13 +1,13 @@
 import { useEffect, useState, useCallback } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom"
-import { IFilesTypes, INoticeTypes } from '../../../Interfaces';
+import { IFilesTypes, IBoardTypes } from '../../Interfaces';
 import axios from 'axios';
-import './noticeDetail.scss';
+import './detail.scss';
 
-export const NoticeDetail: React.FC = (): JSX.Element => {
+export const Detail: React.FC = (): JSX.Element => {
     const { id } = useParams();
     const navigate = useNavigate();
-    const [detail, setDetail] = useState<INoticeTypes>();
+    const [detail, setDetail] = useState<IBoardTypes>();
     const [files, setFiles] = useState<IFilesTypes[]>([]);
 
     useEffect(() => {

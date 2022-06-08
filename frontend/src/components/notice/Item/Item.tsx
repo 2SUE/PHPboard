@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { INoticeTypes } from "../../../Interfaces";
+import { IBoardTypes } from '../../Interfaces';
 import axios from 'axios';
 
-export const NoticeItem:React.FC<INoticeTypes> = ({id, title, reg_date, view_count, state}:INoticeTypes):JSX.Element => {
+export const Item:React.FC<IBoardTypes> = ({id, title, reg_date, view_count, state}:IBoardTypes):JSX.Element => {
     const viewCount = () => {
         axios.post('/api/updateView.php', JSON.stringify({id}));
     }

@@ -8,7 +8,7 @@
 
     require_once("./dbconfig.php");
 
-    $query = "UPDATE notice SET view_count = notice.view_count +1 WHERE id = :val;"; 
+    $query = "UPDATE board SET view_count = board.view_count +1 WHERE id = :val;"; 
     $stmt = $pdo->prepare($query); 
     $stmt->bindValue(':val', $json["id"], PDO::PARAM_INT);  
     $stmt->execute();
